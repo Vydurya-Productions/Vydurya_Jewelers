@@ -87,10 +87,21 @@
         .hero-overlay {
             background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
         }
+
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-black text-white font-body">
-   <!-- Navigation -->
+   <!-- Navigation --> 
 <nav class="gradient-bg fixed w-full z-50 border-b border-opacity-20 border-gold">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-24 items-center">
@@ -196,7 +207,7 @@
                  class="w-full h-full object-cover object-center">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center section-animate">
             <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-6">Our Golden Legacy</h1>
             <div class="diamond-shape bg-gold w-20 h-20 mx-auto flex items-center justify-center mb-8">
                 <i class="fas fa-crown text-black text-3xl"></i>
@@ -213,7 +224,7 @@
     <!-- Heritage Section -->
     <section id="our-story" class="py-16 bg-black bg-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center">
+            <div class="md:flex items-center section-animate">
                 <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
                     <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-6">A Royal Heritage</h2>
                     <p class="text-gray-300 mb-6">Founded in the jewelry capital of India, Mumbai, Vydurya Jewelers began as a small family workshop crafting pieces for royal families. Our founder, Mr. Rajesh Vydurya, believed jewelry should tell a story - one of heritage, craftsmanship, and enduring beauty.</p>
@@ -664,6 +675,23 @@
                 });
             });
         });
+        
+            // Section animation on scroll
+            function checkVisibility() {
+            const sections = document.querySelectorAll('.section-animate');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
     </script>
 </body>
 </html>

@@ -102,6 +102,16 @@
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-black text-white font-body">
@@ -204,7 +214,7 @@
 
     <!-- Collections Header -->
     <section class="pt-32 pb-20 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="text-center">
                 <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-4">Our Collections</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Discover handcrafted jewelry that celebrates India's rich heritage with contemporary elegance</p>
@@ -214,7 +224,7 @@
 
     <!-- Collection Categories -->
     <section class="py-12 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <h2 class="text-3xl font-sans font-bold text-center mb-12">Explore Our Signature Collections</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -301,7 +311,7 @@
 
     <!-- Products Grid -->
     <section class="py-16 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-2xl font-sans font-bold">Featured Jewelry (126 items)</h2>
                 <div class="flex items-center space-x-2">
@@ -356,7 +366,7 @@
                 <!-- Product 2 -->
                 <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover group">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Ruby Earrings" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzsN5ZjdwG84rhqT0V8jY4P304mG6o0wZZ5in-rB2ztJ7dU8Ka3smLPaEt5ycE9WtUZt8&usqp=CAU" alt="Ruby Earrings" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         <div class="absolute top-4 right-4">
                             <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
                                 <i class="far fa-heart"></i>
@@ -390,7 +400,7 @@
                 <!-- Product 3 -->
                 <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover group">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1603974372035-96a6c9803c7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Emerald Ring" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQvP32FzlE-JR1ZBI1Gjnr-ABqdYsPXrcLAmxvGFw5TdWBk1HnymHxtEGkVJvqhcDToz3YQ4EsiYIE_vNXHu2EOCUjyk_fso2G4BFOQxjdTvwi3INY2ZOZE6cc" alt="Emerald Ring" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         <div class="absolute top-4 right-4">
                             <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
                                 <i class="far fa-heart"></i>
@@ -427,7 +437,7 @@
                 <!-- Product 4 -->
                 <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover group">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1611594606057-d65a50a347a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Diamond Bracelet" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <img src="https://i.etsystatic.com/7020555/r/il/7128bb/5351843164/il_fullxfull.5351843164_gsf4.jpg" alt="Diamond Bracelet" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         <div class="absolute top-4 right-4">
                             <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
                                 <i class="far fa-heart"></i>
@@ -566,7 +576,7 @@
                 <!-- Product 8 -->
                 <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover group">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1611594606326-26a5a5f5c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Sapphire Ring" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <img src="https://i.etsystatic.com/10697310/r/il/cb94eb/5277741544/il_fullxfull.5277741544_5yu5.jpg" alt="Sapphire Ring" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         <div class="absolute top-4 right-4">
                             <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
                                 <i class="far fa-heart"></i>
@@ -622,7 +632,7 @@
 
     <!-- Featured Collection -->
     <section class="py-16 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-sans font-bold text-gold mb-4">The Heritage Collection</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Celebrating India's rich jewelry traditions with contemporary craftsmanship</p>
@@ -646,7 +656,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 jewel-hover">
                         <div class="relative h-40">
-                            <img src="https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Traditional Earrings" class="w-full h-full object-cover">
+                            <img src="https://images.meesho.com/images/products/382785949/nfyvl_1200.jpg" alt="Traditional Earrings" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4">
                             <h4 class="font-medium text-white mb-2">Traditional Jhumkas</h4>
@@ -656,7 +666,7 @@
                     
                     <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 jewel-hover">
                         <div class="relative h-40">
-                            <img src="https://images.unsplash.com/photo-1603974372035-96a6c9803c7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Temple Jewelry" class="w-full h-full object-cover">
+                            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSenn2DSNSJ2Y7iKHgNBIBiGS5ubjOaMnuB1eGEnrXf34eHGFTOh-f9ABYfGj4j1F2LEzfRIbGBJ8HTdSC9FzF9uqako1jIVCXal_mo0Z4" alt="Temple Jewelry" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4">
                             <h4 class="font-medium text-white mb-2">Temple Jewelry</h4>
@@ -676,7 +686,7 @@
                     
                     <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 jewel-hover">
                         <div class="relative h-40">
-                            <img src="https://images.unsplash.com/photo-1611594606057-d65a50a347a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Gold Bangles" class="w-full h-full object-cover">
+                            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTW_OHjwDjz07xA-2uaOcIzIkOTUVY17_UFapgcfCRq4fCfIS9oI2BQLRYIo2LR0xprR14R7pmWqKe6z_UA6CQFWC7W4Gupeqf6qmCg4Vo" alt="Gold Bangles" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4">
                             <h4 class="font-medium text-white mb-2">Gold Bangles</h4>
@@ -932,6 +942,23 @@
                 card.querySelector('img').style.transform = 'scale(1)';
             });
         });
+        
+            // Section animation on scroll
+            function checkVisibility() {
+            const sections = document.querySelectorAll('.section-animate');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
     </script>
 </body>
 </html>

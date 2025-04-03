@@ -84,6 +84,16 @@
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-black text-white font-body">
@@ -191,7 +201,7 @@
                  class="w-full h-full object-cover object-center">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center section-animate">
             <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-6">Connect With Us</h1>
             <div class="diamond-shape bg-gold w-20 h-20 mx-auto flex items-center justify-center mb-8">
                 <i class="fas fa-envelope-open-text text-black text-3xl"></i>
@@ -207,13 +217,13 @@
 
     <!-- Contact Options -->
     <section class="py-16 bg-black bg-pattern">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">How Can We Help You?</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Choose your preferred way to get in touch with our jewelry specialists</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 section-animate">
                 <div class="contact-card rounded-xl p-8 text-center jewel-hover">
                     <div class="feature-icon mx-auto">
                         <i class="fas fa-phone-alt text-gold text-2xl"></i>
@@ -349,7 +359,7 @@
 
     <!-- Store Locations -->
     <section class="py-16 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">Visit Our Boutiques</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Experience Vydurya Jewelers in person at our luxurious showrooms</p>
@@ -628,6 +638,22 @@
     <script>
        
         
+            // Section animation on scroll
+            function checkVisibility() {
+            const sections = document.querySelectorAll('.section-animate');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
         // FAQ accordion functionality
         document.querySelectorAll('.bg-gray-800 button').forEach(button => {
             button.addEventListener('click', () => {
