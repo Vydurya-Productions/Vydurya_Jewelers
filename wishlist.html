@@ -61,6 +61,16 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             border: 1px dashed rgba(212, 175, 55, 0.3);
         }
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-black text-white font-body">
@@ -163,7 +173,7 @@
 
     <!-- Wishlist Header -->
     <section class="pt-32 pb-20 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate ">
             <div class="text-center">
                 <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-4">Your Wishlist</h1>
                 <div class="diamond-shape bg-gold w-16 h-16 mx-auto flex items-center justify-center mb-6">
@@ -347,7 +357,7 @@
 
     <!-- Recently Viewed -->
     <section class="py-16 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-animate">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-sans font-bold text-gold mb-4">Recently Viewed</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Items you might want to add to your wishlist</p>
@@ -357,7 +367,7 @@
                 <!-- Product 1 -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1611594606326-26a5a5f5c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                        <img src="https://i.etsystatic.com/10697310/r/il/cb94eb/5277741544/il_fullxfull.5277741544_5yu5.jpg" 
                              alt="Sapphire Ring" 
                              class="w-full h-full object-cover">
                         <div class="absolute top-4 right-4">
@@ -375,7 +385,7 @@
                 <!-- Product 2 -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
                     <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1611594606057-d65a50a347a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                        <img src="https://images.meesho.com/images/products/461717305/lkaec_1200.jpg" 
                              alt="Diamond Bracelet" 
                              class="w-full h-full object-cover">
                         <div class="absolute top-4 right-4">
@@ -537,6 +547,22 @@
     <script>
        
         
+            // Section animation on scroll
+            function checkVisibility() {
+            const sections = document.querySelectorAll('.section-animate');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
         // Simple script for smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
