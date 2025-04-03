@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vydurya Jewelers - Our Legacy of Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        rosegold: '#B76E79',
+                        platinum: '#E5E4E2',
+                        dark: '#0f0f0f',
+                    },
+                    fontFamily: {
+                        sans: ['"Playfair Display"', 'serif'],
+                        body: ['"Montserrat"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 100%);
+        }
+        
+        .jewel-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .jewel-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .diamond-shape {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background: linear-gradient(to bottom, #D4AF37, transparent);
+        }
+        
+        .bg-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .testimonial-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body">
+    <!-- Navigation -->
+    <nav class="gradient-bg fixed w-full z-50 border-b border-opacity-20 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                        <a href="collections.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-gem mr-2"></i> Collections
+                        </a>
+                        <a href="about.html" class="text-gold hover:text-white px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i> About Us
+                        </a>
+                        <a href="contact.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Contact
+                        </a>
+                        <a href="wishlist.html" class="relative text-white hover:text-gold">
+                            <i class="fas fa-heart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-rosegold text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </a>
+                        <a href="Cart.html" class="relative text-white hover:text-gold">
+                            <i class="fas fa-shopping-bag text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-gold text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-white hover:text-gold focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark py-4 border-b border-gray-800" id="mobile-menu">
+        <div class="px-4 space-y-3">
+            <a href="index.html" class="block text-white hover:text-gold px-3 py-2">Home</a>
+            <a href="collections.html" class="block text-white hover:text-gold px-3 py-2">Collections</a>
+            <a href="about.html" class="block text-gold hover:text-white px-3 py-2">About Us</a>
+            <a href="contact.html" class="block text-white hover:text-gold px-3 py-2">Contact</a>
+            <a href="wishlist.html" class="block text-white hover:text-gold px-3 py-2">Wishlist (3)</a>
+            <a href="cart.html" class="block text-white hover:text-gold px-3 py-2">Cart (2)</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden h-[70vh] flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Vydurya Jewelers Workshop" 
+                 class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-6">Our Golden Legacy</h1>
+            <div class="diamond-shape bg-gold w-20 h-20 mx-auto flex items-center justify-center mb-8">
+                <i class="fas fa-crown text-black text-3xl"></i>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">Crafting timeless elegance since 1998 with uncompromising purity and artistry</p>
+            <div class="mt-12">
+                <a href="#our-story" class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    Discover Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Section -->
+    <section id="our-story" class="py-16 bg-black bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-6">A Royal Heritage</h2>
+                    <p class="text-gray-300 mb-6">Founded in the jewelry capital of India, Mumbai, Vydurya Jewelers began as a small family workshop crafting pieces for royal families. Our founder, Mr. Rajesh Vydurya, believed jewelry should tell a story - one of heritage, craftsmanship, and enduring beauty.</p>
+                    <p class="text-gray-300 mb-8">Today, we continue this tradition with master artisans trained in both traditional Indian techniques and contemporary design principles, creating pieces that transcend generations.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gold bg-opacity-10 p-4 rounded-lg border border-gold border-opacity-30 jewel-hover">
+                            <p class="text-4xl font-bold text-gold">25+</p>
+                            <p class="text-gray-300 text-sm">Years of Excellence</p>
+                        </div>
+                        <div class="bg-gold bg-opacity-10 p-4 rounded-lg border border-gold border-opacity-30 jewel-hover">
+                            <p class="text-4xl font-bold text-gold">50+</p>
+                            <p class="text-gray-300 text-sm">Master Artisans</p>
+                        </div>
+                        <div class="bg-gold bg-opacity-10 p-4 rounded-lg border border-gold border-opacity-30 jewel-hover">
+                            <p class="text-4xl font-bold text-gold">10K+</p>
+                            <p class="text-gray-300 text-sm">Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative jewel-hover">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Jewelry Crafting" 
+                             class="rounded-lg shadow-2xl w-full h-auto max-h-[500px] object-cover">
+                        <div class="absolute -bottom-6 -right-6 bg-black p-6 rounded-lg shadow-lg border border-gold border-opacity-30 jewel-hover">
+                            <div class="flex items-center">
+                                <i class="fas fa-award text-gold text-2xl mr-3"></i>
+                                <div>
+                                    <p class="text-white font-medium">Certified</p>
+                                    <p class="text-gray-400 text-xs">BIS Hallmark</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">Our Journey</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Milestones that shaped our legacy</p>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline -->
+                <div class="space-y-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gold border-4 border-black"></div>
+                        <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 jewel-hover">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <span class="text-gold font-bold">1998</span>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <h3 class="text-xl font-sans font-bold text-white mb-2">Humble Beginnings</h3>
+                                    <p class="text-gray-400">Founded as a small workshop in Mumbai's Zaveri Bazaar, crafting custom pieces for local clientele.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gold border-4 border-black"></div>
+                        <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 jewel-hover">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <span class="text-gold font-bold">2005</span>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <h3 class="text-xl font-sans font-bold text-white mb-2">First Boutique</h3>
+                                    <p class="text-gray-400">Opened our first retail boutique in South Mumbai, introducing the Vydurya brand to discerning customers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gold border-4 border-black"></div>
+                        <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 jewel-hover">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <span class="text-gold font-bold">2012</span>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <h3 class="text-xl font-sans font-bold text-white mb-2">Royal Commission</h3>
+                                    <p class="text-gray-400">Honored to create a bridal set for a royal wedding, marking our entry into high-end bespoke jewelry.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gold border-4 border-black"></div>
+                        <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 jewel-hover">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <span class="text-gold font-bold">2018</span>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <h3 class="text-xl font-sans font-bold text-white mb-2">National Recognition</h3>
+                                    <p class="text-gray-400">Awarded 'Best Traditional Jewelry Designer' at the India Jewelry Awards.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gold border-4 border-black"></div>
+                        <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 jewel-hover">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <span class="text-gold font-bold">2023</span>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <h3 class="text-xl font-sans font-bold text-white mb-2">Digital Presence</h3>
+                                    <p class="text-gray-400">Launched our e-commerce platform, bringing Vydurya craftsmanship to customers worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craftsmanship Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">The Vydurya Difference</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">What sets our jewelry apart</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-gem text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-sans font-bold text-white mb-3 text-center">Ethical Sourcing</h3>
+                    <p class="text-gray-400 text-center">We use only conflict-free diamonds and responsibly sourced gemstones, with full traceability from mine to market.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-hammer text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-sans font-bold text-white mb-3 text-center">Handcrafted Perfection</h3>
+                    <p class="text-gray-400 text-center">Each piece undergoes 87 meticulous steps by our master artisans, blending traditional techniques with modern precision.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-shield-alt text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-sans font-bold text-white mb-3 text-center">Lifetime Guarantee</h3>
+                    <p class="text-gray-400 text-center">We stand behind our craftsmanship with a lifetime warranty on all jewelry, including free annual inspections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisan Spotlight -->
+    <section class="py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">Meet Our Master Artisans</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">The hands behind your heirlooms</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex items-start jewel-hover">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gold mr-6">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Master Artisan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-sans font-bold text-white mb-1">Rajiv Malhotra</h3>
+                        <p class="text-gold mb-3">Chief Goldsmith | 32 Years Experience</p>
+                        <p class="text-gray-400">"I learned jewelry-making from my father, who served the royal family of Jaipur. At Vydurya, we maintain those royal standards in every piece."</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Kundan Specialist</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Diamond Setting</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Jadau</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-start jewel-hover">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gold mr-6">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Master Artisan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-sans font-bold text-white mb-1">Priya Desai</h3>
+                        <p class="text-gold mb-3">Design Director | 18 Years Experience</p>
+                        <p class="text-gray-400">"I bridge traditional Indian motifs with contemporary aesthetics. Every design tells a story of where we come from and where we're going."</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">CAD Design</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Bridal Collections</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Modern Fusion</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-start jewel-hover">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gold mr-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Master Artisan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-sans font-bold text-white mb-1">Amit Sharma</h3>
+                        <p class="text-gold mb-3">Gemologist | 15 Years Experience</p>
+                        <p class="text-gray-400">"Each gemstone has a unique personality. My job is to match stones with designs that enhance their natural beauty and energy."</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Gem Certification</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Stone Selection</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Quality Control</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-start jewel-hover">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gold mr-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Master Artisan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-sans font-bold text-white mb-1">Neha Kapoor</h3>
+                        <p class="text-gold mb-3">Enamel Specialist | 12 Years Experience</p>
+                        <p class="text-gray-400">"The art of Meenakari requires infinite patience. Each piece I work on becomes a canvas for vibrant colors and intricate patterns."</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Meenakari</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Enamel Work</span>
+                            <span class="bg-gray-800 text-gold px-3 py-1 rounded-full text-xs">Miniature Art</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#" class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    Meet More Artisans
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-sans font-bold text-gold mb-4">Praise From Our Patrons</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Trusted by generations of jewelry connoisseurs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-xl p-6 jewel-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"The bridal set I purchased from Vydurya was beyond my expectations. The craftsmanship is exquisite and the gold purity is as promised. Will definitely shop here again!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya Sharma" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-white">Priya Sharma</h4>
+                            <p class="text-gray-400 text-sm">Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-6 jewel-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Excellent customer service and beautiful jewelry. My wife loved the anniversary gift I got her. The customization options made it truly special."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul Patel" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-white">Rahul Patel</h4>
+                            <p class="text-gray-400 text-sm">Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-6 jewel-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"I've been a customer for over 10 years. Their jewelry maintains its shine and quality over time. The after-sales service is exceptional."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ananya Reddy" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-white">Ananya Reddy</h4>
+                            <p class="text-gray-400 text-sm">Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gray-900 rounded-xl p-8 md:p-12 jewel-hover">
+                <h2 class="text-3xl font-sans font-bold text-gold mb-4">Experience Vydurya Craftsmanship</h2>
+                <p class="text-xl text-gray-300 mb-8">Visit our boutiques in Mumbai, Delhi, and Bangalore, or explore our collections online.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="collections.html" class="bg-gold hover:bg-opacity-90 text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                        Browse Collections
+                    </a>
+                    <a href="contact.html" class="border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                        Book Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Crafting timeless elegance since 1998. Your trusted destination for exquisite jewelry in India.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition duration-300">Home</a></li>
+                        <li><a href="collections.html" class="text-gray-400 hover:text-gold transition duration-300">Collections</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold transition duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Order Tracking</a></li>
+                        <li><a href="wishlist.html" class="text-gray-400 hover:text-gold transition duration-300">Wishlist</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold"></i>
+                            <span>123 Jewel Street, Mumbai, Maharashtra 400001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gold"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold"></i>
+                            <span>info@vyduryajewelers.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="md:flex items-center justify-between">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Vydurya Jewelers. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Shipping Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition duration-300 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wishlist | Vydurya Jewelers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        rosegold: '#B76E79',
+                        platinum: '#E5E4E2',
+                        dark: '#0f0f0f',
+                    },
+                    fontFamily: {
+                        sans: ['"Playfair Display"', 'serif'],
+                        body: ['"Montserrat"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 100%);
+        }
+        
+        .jewel-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .jewel-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .diamond-shape {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .wishlist-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .wishlist-item:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .empty-wishlist {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body">
+    <!-- Navigation -->
+    <nav class="gradient-bg fixed w-full z-50 border-b border-opacity-20 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                        <a href="collections.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-gem mr-2"></i> Collections
+                        </a>
+                        <a href="about.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i> About Us
+                        </a>
+                        <a href="contact.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Contact
+                        </a>
+                        <a href="wishlist.html" class="relative text-gold hover:text-white">
+                            <i class="fas fa-heart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-rosegold text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </a>
+                        <a href="Cart.html" class="relative text-white hover:text-gold">
+                            <i class="fas fa-shopping-bag text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-gold text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-white hover:text-gold focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark py-4 border-b border-gray-800" id="mobile-menu">
+        <div class="px-4 space-y-3">
+            <a href="index.html" class="block text-white hover:text-gold px-3 py-2">Home</a>
+            <a href="collections.html" class="block text-white hover:text-gold px-3 py-2">Collections</a>
+            <a href="about.html" class="block text-white hover:text-gold px-3 py-2">About Us</a>
+            <a href="contact.html" class="block text-white hover:text-gold px-3 py-2">Contact</a>
+            <a href="wishlist.html" class="block text-gold hover:text-white px-3 py-2">Wishlist (3)</a>
+            <a href="cart.html" class="block text-white hover:text-gold px-3 py-2">Cart (2)</a>
+        </div>
+    </div>
+
+    <!-- Wishlist Header -->
+    <section class="pt-32 pb-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-4">Your Wishlist</h1>
+                <div class="diamond-shape bg-gold w-16 h-16 mx-auto flex items-center justify-center mb-6">
+                    <i class="fas fa-heart text-black text-2xl"></i>
+                </div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Your curated collection of favorite jewelry pieces</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlist Summary -->
+    <section class="py-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">You have <span class="text-gold font-bold">3 items</span> in your wishlist</p>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-6 rounded-full transition duration-300">
+                        Share Wishlist
+                    </button>
+                    <button class="bg-gold hover:bg-opacity-90 text-black font-medium py-2 px-6 rounded-full transition duration-300">
+                        Move All to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlist Items -->
+    <section class="py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                <!-- Wishlist Item 1 -->
+                <div class="wishlist-item p-6 flex flex-col md:flex-row">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <div class="w-32 h-32 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                                 alt="Eternal Radiance Necklace" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <h3 class="text-xl font-sans font-bold text-white mb-1">Eternal Radiance Necklace</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-gold mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-400 text-sm">(42 reviews)</span>
+                                </div>
+                                <p class="text-gray-400 mb-2">22K Gold with Diamond accents | 18" chain length</p>
+                                <p class="text-gold font-bold text-lg">₹89,999</p>
+                            </div>
+                            <div class="flex flex-col space-y-3 md:items-end">
+                                <div class="flex space-x-4">
+                                    <button class="text-gray-400 hover:text-rosegold transition duration-300">
+                                        <i class="fas fa-trash-alt"></i> Remove
+                                    </button>
+                                    <button class="text-gold hover:text-white transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-1"></i> Move to Cart
+                                    </button>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-400">Availability:</span>
+                                    <span class="text-green-400 font-medium">In Stock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Item 2 -->
+                <div class="wishlist-item p-6 flex flex-col md:flex-row">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <div class="w-32 h-32 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Celestial Diamond Earrings" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <h3 class="text-xl font-sans font-bold text-white mb-1">Celestial Diamond Earrings</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-gold mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-400 text-sm">(28 reviews)</span>
+                                </div>
+                                <p class="text-gray-400 mb-2">Platinum with 1.5ct Diamonds | French hook backs</p>
+                                <p class="text-gold font-bold text-lg">₹1,25,000</p>
+                            </div>
+                            <div class="flex flex-col space-y-3 md:items-end">
+                                <div class="flex space-x-4">
+                                    <button class="text-gray-400 hover:text-rosegold transition duration-300">
+                                        <i class="fas fa-trash-alt"></i> Remove
+                                    </button>
+                                    <button class="text-gold hover:text-white transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-1"></i> Move to Cart
+                                    </button>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-400">Availability:</span>
+                                    <span class="text-green-400 font-medium">In Stock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Item 3 -->
+                <div class="wishlist-item p-6 flex flex-col md:flex-row">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <div class="w-32 h-32 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1603974372035-96e15200f8e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Royal Ruby Statement Ring" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <h3 class="text-xl font-sans font-bold text-white mb-1">Royal Ruby Statement Ring</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-gold mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-400 text-sm">(15 reviews)</span>
+                                </div>
+                                <p class="text-gray-400 mb-2">18K Gold with 2ct Burmese Ruby | Size 7 (resizable)</p>
+                                <p class="text-gold font-bold text-lg">₹1,89,999</p>
+                            </div>
+                            <div class="flex flex-col space-y-3 md:items-end">
+                                <div class="flex space-x-4">
+                                    <button class="text-gray-400 hover:text-rosegold transition duration-300">
+                                        <i class="fas fa-trash-alt"></i> Remove
+                                    </button>
+                                    <button class="text-gold hover:text-white transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-1"></i> Move to Cart
+                                    </button>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-400">Availability:</span>
+                                    <span class="text-yellow-400 font-medium">Low Stock (2 left)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wishlist Summary -->
+            <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">Total value: <span class="text-gold font-bold text-xl">₹4,04,998</span></p>
+                </div>
+                <div>
+                    <button class="bg-gold hover:bg-opacity-90 text-black font-bold py-3 px-8 rounded-full transition duration-300 flex items-center">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Add All to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-sans font-bold text-gold mb-4">Recently Viewed</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Items you might want to add to your wishlist</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1611594606326-26a5a5f5c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Sapphire Ring" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-white mb-1">Blue Sapphire Ring</h3>
+                        <p class="text-gold font-bold">₹1,45,000</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1611594606057-d65a50a347a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Diamond Bracelet" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-white mb-1">Diamond Tennis Bracelet</h3>
+                        <p class="text-gold font-bold">₹2,15,000</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Pearl Necklace" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-white mb-1">Pearl Elegance Necklace</h3>
+                        <p class="text-gold font-bold">₹75,800</p>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Bridal Set" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full transition duration-300">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-white mb-1">Royal Bridal Set</h3>
+                        <p class="text-gold font-bold">₹3,45,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empty Wishlist State (Hidden) -->
+    <section class="py-16 bg-black hidden" id="empty-wishlist">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="empty-wishlist rounded-xl p-12">
+                <div class="diamond-shape bg-gold bg-opacity-20 w-20 h-20 mx-auto flex items-center justify-center mb-6">
+                    <i class="far fa-heart text-gold text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-sans font-bold text-white mb-4">Your Wishlist is Empty</h2>
+                <p class="text-gray-400 mb-8">Start adding your favorite jewelry pieces to create your personalized collection</p>
+                <a href="collections.html" class="inline-block bg-gold hover:bg-opacity-90 text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    Explore Collections
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Crafting timeless elegance since 1998. Your trusted destination for exquisite jewelry in India.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition duration-300">Home</a></li>
+                        <li><a href="collections.html" class="text-gray-400 hover:text-gold transition duration-300">Collections</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold transition duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Order Tracking</a></li>
+                        <li><a href="wishlist.html" class="text-gray-400 hover:text-gold transition duration-300">Wishlist</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold"></i>
+                            <span>123 Jewel Street, Mumbai, Maharashtra 400001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gold"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold"></i>
+                            <span>info@vyduryajewelers.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="md:flex items-center justify-between">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Vydurya Jewelers. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Shipping Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition duration-300 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Wishlist item removal functionality
+        document.querySelectorAll('.wishlist-item button.text-gray-400').forEach(button => {
+            button.addEventListener('click', function() {
+                const wishlistItem = this.closest('.wishlist-item');
+                wishlistItem.style.opacity = '0';
+                setTimeout(() => {
+                    wishlistItem.remove();
+                    // Check if wishlist is empty and show empty state if needed
+                    if(document.querySelectorAll('.wishlist-item').length === 0) {
+                        document.getElementById('empty-wishlist').classList.remove('hidden');
+                    }
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

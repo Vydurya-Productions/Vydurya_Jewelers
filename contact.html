@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Vydurya Jewelers - Exquisite Indian Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        rosegold: '#B76E79',
+                        platinum: '#E5E4E2',
+                        dark: '#0f0f0f',
+                    },
+                    fontFamily: {
+                        sans: ['"Playfair Display"', 'serif'],
+                        body: ['"Montserrat"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 100%);
+        }
+        
+        .jewel-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .jewel-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .diamond-shape {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .contact-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .bg-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body">
+    <!-- Navigation -->
+    <nav class="gradient-bg fixed w-full z-50 border-b border-opacity-20 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                        <a href="collections.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-gem mr-2"></i> Collections
+                        </a>
+                        <a href="about.html" class="text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i> About Us
+                        </a>
+                        <a href="contact.html" class="text-gold hover:text-white px-3 py-2 text-sm font-medium transition duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Contact
+                        </a>
+                        <a href="wishlist.html" class="relative text-white hover:text-gold">
+                            <i class="fas fa-heart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-rosegold text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </a>
+                        <a href="Cart.html" class="relative text-white hover:text-gold">
+                            <i class="fas fa-shopping-bag text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-gold text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-white hover:text-gold focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark py-4 border-b border-gray-800" id="mobile-menu">
+        <div class="px-4 space-y-3">
+            <a href="index.html" class="block text-white hover:text-gold px-3 py-2">Home</a>
+            <a href="collections.html" class="block text-white hover:text-gold px-3 py-2">Collections</a>
+            <a href="about.html" class="block text-white hover:text-gold px-3 py-2">About Us</a>
+            <a href="contact.html" class="block text-gold hover:text-white px-3 py-2">Contact</a>
+            <a href="wishlist.html" class="block text-white hover:text-gold px-3 py-2">Wishlist (3)</a>
+            <a href="cart.html" class="block text-white hover:text-gold px-3 py-2">Cart (2)</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden h-[70vh] flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Vydurya Jewelers Customer Service" 
+                 class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-sans font-bold text-gold mb-6">Connect With Us</h1>
+            <div class="diamond-shape bg-gold w-20 h-20 mx-auto flex items-center justify-center mb-8">
+                <i class="fas fa-envelope-open-text text-black text-3xl"></i>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">Our jewelry experts are ready to assist you with any inquiries or custom requests</p>
+            <div class="mt-12">
+                <a href="#contact-form" class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    Send Us a Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="py-16 bg-black bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">How Can We Help You?</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Choose your preferred way to get in touch with our jewelry specialists</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="contact-card rounded-xl p-8 text-center jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-phone-alt text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-sans font-bold text-white mb-3">Call Us</h3>
+                    <p class="text-gray-400 mb-6">Speak directly with our jewelry consultants for immediate assistance</p>
+                    <a href="tel:+911234567890" class="text-gold hover:text-white font-medium text-lg">+91 12345 67890</a>
+                    <p class="text-gray-500 text-sm mt-3">Mon-Sat: 10AM - 8PM IST</p>
+                    <div class="mt-6">
+                        <a href="tel:+911234567890" class="inline-block border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-6 rounded-full transition duration-300">
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-card rounded-xl p-8 text-center jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-envelope text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-sans font-bold text-white mb-3">Email Us</h3>
+                    <p class="text-gray-400 mb-6">For detailed inquiries, custom orders, and partnership opportunities</p>
+                    <a href="mailto:contact@vyduryajewelers.com" class="text-gold hover:text-white font-medium text-lg">contact@vyduryajewelers.com</a>
+                    <p class="text-gray-500 text-sm mt-3">Response within 24 hours</p>
+                    <div class="mt-6">
+                        <a href="mailto:contact@vyduryajewelers.com" class="inline-block border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-6 rounded-full transition duration-300">
+                            Email Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-card rounded-xl p-8 text-center jewel-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fab fa-whatsapp text-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-sans font-bold text-white mb-3">WhatsApp</h3>
+                    <p class="text-gray-400 mb-6">Instant messaging for quick queries, product images, and video calls</p>
+                    <a href="https://wa.me/911234567890" class="text-gold hover:text-white font-medium text-lg">+91 12345 67890</a>
+                    <p class="text-gray-500 text-sm mt-3">Live chat support</p>
+                    <div class="mt-6">
+                        <a href="https://wa.me/911234567890" class="inline-block border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-6 rounded-full transition duration-300">
+                            Message Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-black rounded-xl p-8 md:p-12 border border-gold border-opacity-30">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-6">Send Us a Message</h2>
+                        <p class="text-gray-400 mb-8">Have questions about our jewelry collections, customization options, or need assistance with an order? Fill out the form and our team will get back to you within 24 hours.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-gold bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-info-circle text-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-sans font-bold text-white mb-1">Custom Jewelry Inquiries</h4>
+                                    <p class="text-gray-400 text-sm">For custom designs, please include details about your vision, budget, and timeline.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-gold bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-calendar-alt text-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-sans font-bold text-white mb-1">Boutique Appointments</h4>
+                                    <p class="text-gray-400 text-sm">Schedule a private viewing at one of our boutiques for a personalized experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Your Name*</label>
+                                <input type="text" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Email Address*</label>
+                                <input type="email" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Phone Number*</label>
+                                <input type="tel" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">Subject*</label>
+                                <select required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
+                                    <option value="">Select inquiry type</option>
+                                    <option>Custom Jewelry Design</option>
+                                    <option>Product Inquiry</option>
+                                    <option>Appointment Booking</option>
+                                    <option>After-Sales Service</option>
+                                    <option>Wholesale Inquiry</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-2">Your Message*</label>
+                            <textarea required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent" rows="5"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="newsletter" class="mr-3 bg-gray-800 border border-gray-700 rounded focus:ring-gold focus:ring-2">
+                            <label for="newsletter" class="text-gray-400 text-sm">Subscribe to our newsletter for exclusive offers and new collection updates</label>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="bg-gold hover:bg-opacity-90 text-black font-bold py-3 px-8 rounded-full transition duration-300 inline-flex items-center">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locations -->
+    <section class="py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">Visit Our Boutiques</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Experience Vydurya Jewelers in person at our luxurious showrooms</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600172454522-134bc3a9b8e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Mumbai Store" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-sans font-bold text-white">Mumbai Flagship</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gold mt-1 mr-4"></i>
+                                <p class="text-gray-300">Vydurya Tower, Linking Road, Bandra West, Mumbai - 400050</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-gold mr-4"></i>
+                                <p class="text-gray-300">+91 22 2643 5678</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gold mr-4"></i>
+                                <p class="text-gray-300">Mon-Sat: 10:30 AM - 8:30 PM<br>Sun: 11:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                            <a href="#" class="flex-1 bg-gold hover:bg-opacity-90 text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Get Directions
+                            </a>
+                            <a href="#" class="flex-1 border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Delhi Showroom -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Delhi Store" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-sans font-bold text-white">Delhi Showroom</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gold mt-1 mr-4"></i>
+                                <p class="text-gray-300">Plot No. 38, 2nd Floor, South Extension Part 1, New Delhi - 110049</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-gold mr-4"></i>
+                                <p class="text-gray-300">+91 11 4143 5678</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gold mr-4"></i>
+                                <p class="text-gray-300">Mon-Sat: 10:30 AM - 8:30 PM<br>Sun: Closed</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                            <a href="#" class="flex-1 bg-gold hover:bg-opacity-90 text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Get Directions
+                            </a>
+                            <a href="#" class="flex-1 border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bangalore Boutique -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gold transition duration-500 jewel-hover">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Bangalore Store" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-sans font-bold text-white">Bangalore Boutique</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gold mt-1 mr-4"></i>
+                                <p class="text-gray-300">No. 45, 3rd Floor, UB City, Vittal Mallya Road, Bangalore - 560001</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-gold mr-4"></i>
+                                <p class="text-gray-300">+91 80 4143 5678</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gold mr-4"></i>
+                                <p class="text-gray-300">Mon-Sat: 10:30 AM - 8:30 PM<br>Sun: 11:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                            <a href="#" class="flex-1 bg-gold hover:bg-opacity-90 text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Get Directions
+                            </a>
+                            <a href="#" class="flex-1 border border-gold text-gold hover:bg-gold hover:text-black font-medium py-2 px-4 rounded-full text-center transition duration-300">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.71557574734!2d72.8242143153777!3d19.05204065809759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96a34dc4401%3A0x3ffc07e83942b9f3!2sLinking%20Rd%2C%20Bandra%20West%2C%20Mumbai%2C%20Maharashtra%20400050!5e0!3m2!1sen!2sin!4v1623836546781!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Quick answers to common inquiries about our jewelry and services</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-sans font-medium text-white">How can I verify the authenticity of Vydurya jewelry?</h3>
+                        <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-400">All Vydurya jewelry comes with a certificate of authenticity and BIS hallmark for gold purity. You can verify your purchase using the unique identification number on our website or by visiting any of our boutiques.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-sans font-medium text-white">What is your return and exchange policy?</h3>
+                        <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-400">We offer a 15-day return policy for non-customized jewelry in its original condition. Custom pieces and engraved items cannot be returned or exchanged. All returns are subject to a 10% restocking fee.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-sans font-medium text-white">Do you offer jewelry customization services?</h3>
+                        <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-400">Yes, our master artisans specialize in custom jewelry design. The process begins with a consultation (in-person or virtual) where we discuss your vision, followed by sketches, 3D renderings, and finally crafting your unique piece.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-sans font-medium text-white">How do I care for my Vydurya jewelry?</h3>
+                        <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-400">We recommend storing each piece separately in soft pouches, avoiding contact with chemicals and perfumes, and bringing your jewelry for professional cleaning at our boutiques every 6 months (complimentary for the first year).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    View All FAQs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="diamond-shape bg-gold w-10 h-10 flex items-center justify-center">
+                            <i class="fas fa-gem text-black text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-sans font-semibold text-gold">Vydurya Jewelers</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Crafting timeless elegance since 1998. Your trusted destination for exquisite jewelry in India.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition duration-300">Home</a></li>
+                        <li><a href="collections.html" class="text-gray-400 hover:text-gold transition duration-300">Collections</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold transition duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Order Tracking</a></li>
+                        <li><a href="wishlist.html" class="text-gray-400 hover:text-gold transition duration-300">Wishlist</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition duration-300">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-sans font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold"></i>
+                            <span>123 Jewel Street, Mumbai, Maharashtra 400001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gold"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold"></i>
+                            <span>info@vyduryajewelers.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="md:flex items-center justify-between">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Vydurya Jewelers. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-gold text-sm transition duration-300">Shipping Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/911234567890" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition duration-300 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ accordion functionality
+        document.querySelectorAll('.bg-gray-800 button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
